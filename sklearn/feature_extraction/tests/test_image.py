@@ -19,8 +19,6 @@ def test_img_to_graph():
     grad_x = img_to_graph(x)
     grad_y = img_to_graph(y)
     assert_equal(grad_x.nnz, grad_y.nnz)
-    # Negative elements are the diagonal: the elements of the original
-    # image. Positive elements are the values of the gradient, they
     # should all be equal on grad_x and grad_y
     np.testing.assert_array_equal(grad_x.data[grad_x.data > 0],
                                   grad_y.data[grad_y.data > 0])
